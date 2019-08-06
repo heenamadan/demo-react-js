@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';  
+  
+class App extends Component {  
+  constructor(props){  
+    super(props);  
+    this.state = {  
+         data: 'Heena'  
+      }  
+    this.handleEvent = this.handleEvent.bind(this);  
+  }  
+  handleEvent(){  
+    console.log("props-->"+this.props);  
+    console.log("data from state-->"+this.state.data);
+  } 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+  handleEventUsingArrow =() =>{
+    console.log(this.state.data);
+  } 
+  render() {  
+    return (  
+      <div className="App">  
+    <h2>React Constructor Example</h2>  
+    <input type ="text" value={this.state.data} />  
+        <button onClick={this.handleEvent}>Without Arrow Click</button> 
+        <button onClick={this.handleEventUsingArrow}>Handle Event Arrow Click</button>  
+      </div>  
+    );  
+  }  
+}  
+export default App;  
