@@ -17,15 +17,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import HomePage from './homepage'
-
-ReactDOM.render(
-    <HomePage/>,
-    document.getElementById('app')
-);
+import App from './App'
 
 
-ReactDOM.render(<App name = "JavaTpoint!!" />, document.getElementById('app'));  
+const stringLists = [ 'Peter', 'Sachin', 'Kevin', 'Dhoni', 'Alisa' ];   
+    
+const updatedLists = stringLists.map((strList)=>  
+    <li> {strList} </li>  
+);   
+
+ReactDOM.render(<ul>{updatedLists}</ul>, document.getElementById('list'));  
+
+ReactDOM.render(<App/>, document.getElementById('app'));  
 
 
 
